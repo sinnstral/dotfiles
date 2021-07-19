@@ -1,6 +1,4 @@
-# Dotfiles & Configs
-
-![Qtile](.screenshots/qtile.png)
+# Arch Linux
 
 ***Language***
 - [🇪🇸 Español](./README.es.md)
@@ -8,11 +6,7 @@
 
 ***Quick Links***
 - *Window manager configs*
-  - [Qtile](https://github.com/antoniosarosi/dotfiles/tree/master/.config/qtile)
-  - [Spectrwm](https://github.com/antoniosarosi/dotfiles/tree/master/.config/spectrwm)
-  - [Openbox](https://github.com/antoniosarosi/dotfiles/tree/master/.config/openbox)
   - [Xmonad](https://github.com/antoniosarosi/dotfiles/tree/master/.config/xmonad)
-  - [Dwm](https://github.com/antoniosarosi/dwm)
 - [Gallery (see how my configs look)](#gallery)
 - [Common keybindings for my configs](#keybindings)
 - [Software I use](#software)
@@ -45,12 +39,8 @@
     - [Images](#images)
     - [Video and audio](#video-and-audio)
   - [Start Hacking](#start-hacking)
-- [Gallery](#gallery)
-  - [Qtile](#qtile)
-  - [Spectrwm](#spectrwm)
-  - [Openbox](#openbox)
+- [Gallery](#gallery))
   - [Xmonad](#xmonad)
-  - [Dwm](#dwm)
 - [Keybindings](#keybindings)
   - [Windows](#windows)
   - [Apps](#apps)
@@ -285,10 +275,10 @@ Fonts in Arch Linux are basically a meme, before you run into any problems
 you can just use the simple approach of installing these packages:
 
 ```bash
-sudo pacman -S ttf-dejavu ttf-liberation noto-fonts
+sudo pacman -S ttf-google-sans
 ```
 
-To list all available fonts:
+Use thi to list all available fonts:
 
 ```bash
 fc-list
@@ -758,24 +748,12 @@ which are located in this repository and have their own documentation:
 
 # Gallery
 
-## [Qtile](https://github.com/antoniosarosi/dotfiles/tree/master/.config/qtile)
-![Qtile](.screenshots/qtile.png)
-
-## [Spectrwm](https://github.com/antoniosarosi/dotfiles/tree/master/.config/spectrwm)
-![Spectrwm](.screenshots/spectrwm.png)
-
-## [Openbox](https://github.com/antoniosarosi/dotfiles/tree/master/.config/openbox)
-![Openbox](.screenshots/openbox.png)
-
 ## [Xmonad](https://github.com/antoniosarosi/dotfiles/tree/master/.config/xmonad)
 ![Xmonad](.screenshots/xmonad.png)
 
-## [Dwm](https://github.com/antoniosarosi/dwm)
-![Dwm](.screenshots/dwm.png)
-
 # Keybindings
 
-These are common keybindings to all my window managers.
+These are common keybindings to my window managers.
 
 ## Windows
 
