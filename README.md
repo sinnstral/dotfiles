@@ -260,8 +260,7 @@ that.
 First things first, your screen looks empty and black, so you might want to have
 a wallpaper not to feel so depressed. You can open *firefox* through *rofi*
 using **mod + m** and download one. Then install
-**[feh](https://wiki.archlinux.org/index.php/Feh)** or
-**[nitrogen](https://wiki.archlinux.org/index.php/Nitrogen)**
+**[feh](https://wiki.archlinux.org/index.php/Feh)**
 and and set your wallpaper:
 
 ```bash
@@ -278,7 +277,7 @@ you can just use the simple approach of installing these packages:
 sudo pacman -S ttf-google-sans
 ```
 
-Use thi to list all available fonts:
+Use this to list all available fonts:
 
 ```bash
 fc-list
@@ -737,14 +736,9 @@ Once you feel comfortable with Qtile, you can install other
 tiling window managers, and you will have more sessions available when logging
 in through *lightdm*.
 
-Here you have a list of all my window manager configs,
-which are located in this repository and have their own documentation:
+Here you have my window manager configs:
 
-- [Qtile](https://github.com/antoniosarosi/dotfiles/tree/master/.config/qtile)
-- [Spectrwm](https://github.com/antoniosarosi/dotfiles/tree/master/.config/spectrwm)
-- [Openbox](https://github.com/antoniosarosi/dotfiles/tree/master/.config/openbox)
 - [Xmonad](https://github.com/antoniosarosi/dotfiles/tree/master/.config/xmonad)
-- [Dwm](https://github.com/antoniosarosi/dwm)
 
 # Gallery
 
@@ -778,7 +772,7 @@ These are common keybindings to my window managers.
 The following keybindings will only work if you install all programs needed:
 
 ```bash
-sudo pacman -S rofi thunar firefox alacritty redshift scrot
+sudo pacman -S rofi thunar firefox kitty redshift scrot
 ```
 
 To set up *rofi*,
@@ -827,18 +821,17 @@ and for *alacritty*, [this one](https://github.com/antoniosarosi/dotfiles/tree/m
 | Software                                                                               | Utility                    |
 | -------------------------------------------------------------------------------------- | -------------------------- |
 | **[Picom](https://wiki.archlinux.org/index.php/Picom)**                                | Compositor for Xorg        |
-| **[UbuntuMono Nerd Font](https://aur.archlinux.org/packages/nerd-fonts-ubuntu-mono/)** | Nerd Font for icons        |
+| **[Google Sans Font](https://aur.archlinux.org/packages/ttf-google-sans/)**            | Sans Font                  |
 | **[Material Black](https://www.gnome-look.org/p/1316887/)**                            | GTK theme and icons        |
 | **[lxappearance](https://www.archlinux.org/packages/community/x86_64/lxappearance/)**  | GUI for changing themes    |
-| **[nitrogen](https://wiki.archlinux.org/index.php/Nitrogen)**                          | GUI for setting wallpapers |
 | **[feh](https://wiki.archlinux.org/index.php/Feh)**                                    | CLI for setting wallpapers |
 
 ## Apps
 
 | Software                                                              | Utility                  |
 | --------------------------------------------------------------------- | ------------------------ |
-| **[alacritty](https://wiki.archlinux.org/index.php/Alacritty)**       | Terminal emulator        |
-| **[thunar](https://wiki.archlinux.org/index.php/Thunar)**             | Graphical file explorer  |
+| **[kitty](https://wiki.archlinux.org/index.php/Kitty)**               | Terminal emulator        |
+| **[nnn](https://wiki.archlinux.org/index.php/Nnn)**                   | Graphical file explorer  |
 | **[ranger](https://wiki.archlinux.org/index.php/Ranger)**             | Terminal based explorer  |
 | **[neovim](https://wiki.archlinux.org/index.php/Neovim)**             | Terminal based editor    |
 | **[rofi](https://wiki.archlinux.org/index.php/Rofi)**                 | Menu and window switcher |
