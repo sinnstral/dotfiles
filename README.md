@@ -16,7 +16,7 @@
 - [Overview](#overview)
 - [Arch installation](#arch-installation)
 - [Login and window manager](#login-and-window-manager)
-- [Basic qtile configuration](#basic-qtile-configuration)
+- [Xmonad configuration](#xmonad-configuration)
 - [Basic system utilities](#basic-system-utilities)
   - [Wallpaper](#wallpaper)
   - [Fonts](#fonts)
@@ -33,7 +33,7 @@
   - [File Manager](#file-manager)
   - [Trash](#trash)
   - [GTK Theming](#gtk-theming)
-  - [Qt](#qt)
+  - [Xmonad](#xmonad)
   - [Lightdm theming](#lightdm-theming)
   - [Multimedia](#multimedia)
     - [Images](#images)
@@ -141,112 +141,29 @@ sudo pacman -S xorg
 
 First, we need to be able to login and open some programs like a browser and a
 terminal, so we'll start by installing **[lighdm](https://wiki.archlinux.org/index.php/LightDM)**
-and **[qtile](https://wiki.archlinux.org/index.php/Qtile)**. Lightdm will not
+and **[xmonad](https://wiki.archlinux.org/index.php/Xmonad)**. Lightdm will not
 work unless we install a **[greeter](https://wiki.archlinux.org/index.php/LightDM#Greeter)**.
 We also need
-**[xterm](https://wiki.archlinux.org/index.php/Xterm)** because that's the
-terminal emulator qtile will open by default, until we change the config file.
-Then, a text editor is necessary for editing config files, you can use
+**[kitty](https://wiki.archlinux.org/index.php/Kitty)** because that's my favorite
+terminal emulator.
+A text editor is necessary for editing config files, you can use
 **[vscode](https://wiki.archlinux.org/index.php/Visual_Studio_Code)** or jump
 straight into **[neovim](https://wiki.archlinux.org/index.php/Neovim)** if you
 have previous experience, otherwise I wouldn't suggest it. Last but not least,
 we need a browser.
 
 ```bash
-sudo pacman -S lightdm lightdm-gtk-greeter qtile xterm code firefox
+sudo pacman -S lightdm lightdm-gtk-greeter xmonad kitty neovim firefox
 ```
 
 Enable *lightdm* service and restart your computer, you should be able to log into
-Qtile through *lightdm*.
+Xmonad through *lightdm*.
 
 ```bash
 sudo systemctl enable lightdm
 reboot
 ```
-
-# Basic qtile configuration
-
-Now that you're in Qtile, you should know some of the default keybindings.
-
-| Key                  | Action                     |
-| -------------------- | -------------------------- |
-| **mod + return**     | launch xterm               |
-| **mod + k**          | next window                |
-| **mod + j**          | previous window            |
-| **mod + w**          | kill window                |
-| **mod + [asdfuiop]** | go to workspace [asdfuiop] |
-| **mod + ctrl + r**   | restart qtile              |
-| **mod + ctrl + q**   | logout                     |
-
-Before doing anything else, if you don't have a US keyboard, you should
-change it using *setxkbmap*. To open xterm use **mod + return**. For example to
-change your layout to spanish:
-
-```bash
-setxkbmap es
-```
-
-Note that this change is not permanent, if you reboot you have to type that
-command again. See [this section](#xprofile) for making it permanent, or
-follow the natural order of this guide if you have enough time.
-
-There is no menu by default, you have to launch programs through xterm. At this
-point, you can pick your terminal emulator of choice and install a program
-launcher.
-
-```bash
-# Install another terminal emulator if you want
-sudo pacman -S alacritty
-```
-
-Now open the config file:
-
-```bash
-code ~/.config/qtile/config.py
-```
-
-At the beginning, after imports, you should find an array called *keys*,
-and it contains the following line:
-
-```python
-Key([mod], "Return", lazy.spawn("xterm")),
-```
-
-Change that line to launch your terminal emulator:
-
-```python
-Key([mod], "Return", lazy.spawn("alacritty")),
-```
-
-Install a program launcher like
-**[dmenu](https://wiki.archlinux.org/index.php/Dmenu)**
-or **[rofi](https://wiki.archlinux.org/index.php/Rofi)**:
-
-```bash
-sudo pacman -S rofi
-```
-
-Then add keybindings for that program:
-
-```python
-Key([mod], "m", lazy.spawn("rofi -show run")),
-Key([mod, 'shift'], "m", lazy.spawn("rofi -show")),
-```
-
-Now restart Qtile with **mod + control + r**. You should be able to open your
-menu and terminal emulator with keybindings. If you picked rofi, you can
-change its theme like so:
-
-```bash
-sudo pacman -S which
-rofi-theme-selector
-```
-
-That's it for Qtile, now you can start hacking on it and make it your own.
-Checkout my custom Qtile config
-[here](https://github.com/antoniosarosi/dotfiles/tree/master/.config/qtile).
-But before that I would recommend configuring basic utilities like audio,
-battery, mounting drives, etc.
+# Xmonad configuration
 
 # Basic system utilities
 
@@ -660,7 +577,7 @@ sudo pacman -S picom
 picom &
 ```
 
-## Qt
+## Xmonad
 
 GTK themes will not be applied to Qt programs, but you can use
 [**Kvantum**](https://archlinux.org/packages/?name=kvantum-qt5) to change the
@@ -747,7 +664,7 @@ Here you have my window manager configs:
 
 # Keybindings
 
-These are common keybindings to my window managers.
+These are common keybindings to my window manager.
 
 ## Windows
 
@@ -777,7 +694,7 @@ sudo pacman -S rofi thunar firefox kitty redshift scrot
 
 To set up *rofi*,
 [check this README](https://github.com/antoniosarosi/dotfiles/tree/master/.config/rofi),
-and for *alacritty*, [this one](https://github.com/antoniosarosi/dotfiles/tree/master/.config/alacritty).
+and for *kitty*, [this one](https://github.com/antoniosarosi/dotfiles/tree/master/.config/kitty).
 
 
 ## Apps
@@ -787,11 +704,11 @@ and for *alacritty*, [this one](https://github.com/antoniosarosi/dotfiles/tree/m
 | **mod + m**         | launch rofi                   |
 | **mod + shift + m** | window nav (rofi)             |
 | **mod + b**         | launch browser (firefox)      |
-| **mod + e**         | launch file explorer (thunar) |
-| **mod + return**    | launch terminal (alacritty)   |
+| **mod + e**         | launch file explorer (nnn)    |
+| **mod + return**    | launch terminal (kitty)       |
 | **mod + r**         | redshift                      |
 | **mod + shift + r** | stop redshift                 |
-| **mod + s**         | screenshot (scrot)            |
+| **mod + s**         | screenshot (flameshoot)       |
 
 # Software
 
@@ -821,7 +738,7 @@ and for *alacritty*, [this one](https://github.com/antoniosarosi/dotfiles/tree/m
 | Software                                                                               | Utility                    |
 | -------------------------------------------------------------------------------------- | -------------------------- |
 | **[Picom](https://wiki.archlinux.org/index.php/Picom)**                                | Compositor for Xorg        |
-| **[Google Sans Font](https://aur.archlinux.org/packages/ttf-google-sans/)**            | Sans Font                  |
+| **[Google Sans Font](https://aur.archlinux.org/packages/ttf-google-sans/)**            | System Sans Font           |
 | **[Material Black](https://www.gnome-look.org/p/1316887/)**                            | GTK theme and icons        |
 | **[lxappearance](https://www.archlinux.org/packages/community/x86_64/lxappearance/)**  | GUI for changing themes    |
 | **[feh](https://wiki.archlinux.org/index.php/Feh)**                                    | CLI for setting wallpapers |
@@ -832,9 +749,8 @@ and for *alacritty*, [this one](https://github.com/antoniosarosi/dotfiles/tree/m
 | --------------------------------------------------------------------- | ------------------------ |
 | **[kitty](https://wiki.archlinux.org/index.php/Kitty)**               | Terminal emulator        |
 | **[nnn](https://wiki.archlinux.org/index.php/Nnn)**                   | Graphical file explorer  |
-| **[ranger](https://wiki.archlinux.org/index.php/Ranger)**             | Terminal based explorer  |
 | **[neovim](https://wiki.archlinux.org/index.php/Neovim)**             | Terminal based editor    |
 | **[rofi](https://wiki.archlinux.org/index.php/Rofi)**                 | Menu and window switcher |
-| **[scrot](https://wiki.archlinux.org/index.php/Screen_capture)**      | Screenshot               |
+| **[flameshot](https://wiki.archlinux.org/index.php/Screen_capture)**  | Screenshot               |
 | **[redshift](https://wiki.archlinux.org/index.php/Redshift)**         | Take care of your eyes   |
 | **[trayer](https://www.archlinux.org/packages/extra/x86_64/trayer/)** | Systray                  |
